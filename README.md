@@ -15,11 +15,11 @@ Optional:
 
 ## Installation
 
-Clone this repo to `~/.asciidoc/backend/deckjs`
+Clone this repo to `~/.asciidoc/backends/deckjs`
 
 ~~~~.bash
-mkdir -p ~/.asciidoc/backend
-cd ~/.asciidoc/backend
+mkdir -p ~/.asciidoc/backends
+cd ~/.asciidoc/backends
 git clone https://github.com/miska/my-deckjs-for-asciidoc.git deckjs
 ~~~~
 
