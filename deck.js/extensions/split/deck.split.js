@@ -30,6 +30,28 @@ This module splits a long slide into multiple slides.
 
 			$(slide).children().each(function() {
 				/* for each element inside original slide */
+				var il = $(this);
+
+				if (il.css('page-break-after') == 'always') {
+					if (is_split) {
+						tmp_slide.insertAfter(prev_slide);
+						prev_slide = tmp_slide;
+						tmp_slide = createEmptySlide(title_el);
+					}
+					else {
+						/* find the first page break */
+						is_split = true;
+					}
+				}
+				else {
+					if (is_split) {
+						tmp_slide.append(il);
+					}
+				}
+
+
+			$(il).children().each(function() {
+				/* for each element inside original slide */
 				var el = $(this);
 
 				if (el.css('page-break-after') == 'always') {
@@ -48,6 +70,7 @@ This module splits a long slide into multiple slides.
 						tmp_slide.append(el);
 					}
 				}
+			})
 			})
 			/* add remaining elements to a new slides */
 			if (is_split) {
